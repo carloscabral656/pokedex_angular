@@ -8,7 +8,7 @@
       class="h-full w-97 flex flex-col border-2 border-black rounded-l-3xl bg-pokedex-color"
     >
       <!-- Luzes -->
-      <div class="p-3 h-25/100 w-full flex flex-row gap-2 items-start">
+      <div class="p-3 h-20/100 w-full flex flex-row gap-2 items-start">
         <!-- Luz Maior -->
         <div
           class="h-32 w-32 rounded-full flex relative items-center justify-center border-2 border-black bg-white"
@@ -50,13 +50,15 @@
         </div>
       </div>
 
-      <div class="p-3 w-full h-75/100 flex flex-col items-center justify-start gap-6">
+      <div
+        class="p-3 w-full h-full flex flex-col items-center justify-start gap-6"
+      >
         <!-- Visor -->
         <div
-          class="h-60/100 w-80/100 bg-screen-color rounded-xl flex flex-col items-center"
+          class="h-60/100 w-80/100 bg-screen-color rounded-xl flex flex-col gap-2 items-center screen-shadow-after border-2 border-black"
         >
           <!-- Luzes -->
-          <div class="w-full flex flex-row justify-center p-3 gap-8">
+          <div class="w-full h-5/100 flex flex-row justify-center p-3 gap-8">
             <div
               class="rounded-full border border-black bg-pokedex-color h-3 w-3"
             ></div>
@@ -64,17 +66,42 @@
               class="rounded-full border border-black bg-pokedex-color h-3 w-3"
             ></div>
           </div>
+
+          <!-- Visor -->
           <div class="w-90/100 h-80/100 rounded-xl bg-black"></div>
+
+          <div class="w-full h-15/100 flex flex-row justify-between p-3 gap-8">
+            <div
+              class="rounded-full border border-black bg-pokedex-color h-7 w-7"
+            ></div>
+
+            <div class="w-14 flex flex-col gap-1">
+                <div class="w-full h-2 bg-black rounded-md"></div>
+                <div class="w-full h-2 bg-black rounded-md"></div>
+                <div class="w-full h-2 bg-black rounded-md"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Input -->
         <input
-          class="h-20 w-80/100 bg-screen-color border border-black rounded-xl flex flex-col items-center"
+          placeholder="Digite um nome"
+          class="text-xl h-20 w-80/100 bg-screen-color outline-none border-2 border-black rounded-xl flex flex-col items-center p-2 screen-shadow-after"
         />
 
-        <div class="w-full h-20/100 flex flex-row justify-around gap-7 p-7">
-            <button class="text-white rounded-xl grow shadow-button-shadow border-2 border-black bg-button-color">Anterior <</button>
-            <button class="text-white rounded-xl grow shadow-button-shadow border-2 border-black bg-button-color">> Próximo</button>
+        <div
+          class="w-full h-20/100 flex flex-row grow justify-around gap-7 p-10 self-end"
+        >
+          <button
+            class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
+          >
+            Anterior <
+          </button>
+          <button
+            class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
+          >
+            > Próximo
+          </button>
         </div>
       </div>
     </div>
