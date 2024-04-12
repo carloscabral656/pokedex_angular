@@ -9,22 +9,23 @@ import {
   on,
 } from '@ngrx/store';
 import { pokemonsActions } from './pokemons.actions';
+import { PokemonResume } from '../../interfaces/pokemon-resume.model';
 
 export interface PokemonsState {
-  pokemons: any[];
+  pokemonsResume: PokemonResume[];
 }
 
 const initialState: PokemonsState = {
-  pokemons: [],
+  pokemonsResume: [],
 };
 
 export const pokemonsReducer = createReducer(
   initialState,
-  on(pokemonsActions.getAllPokemons, (state) => {
+  on(pokemonsActions.getAllPokemonsSuccess, (state, action) => {
     return {
       ...state,
-      pokemons: [],
-    };
-  })
+      pokemonsResume: action.pokemonsResume.results
+    }
+  }),
 );
 

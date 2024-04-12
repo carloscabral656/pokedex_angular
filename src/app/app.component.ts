@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { pokemonsActions } from './store/pokemons/pokemons.actions';
+import { HttpClientModule } from '@angular/common/http';
+import { PokemonsService } from './services/pokemons.service';
 
 @Component({
   selector: 'app-root',
