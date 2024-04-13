@@ -12,10 +12,11 @@ export class PokemonsEffects {
         ofType(pokemonsActions.getAllPokemons),
         exhaustMap(() =>
           this.pokemonsService.getAllPokemons().pipe(
-            tap(value => console.log(value)),
-            map((pokemonsResume) => (
-              pokemonsActions.getAllPokemonsSuccess({pokemonsResume: pokemonsResume})
-            )),
+            map((pokemonsResume) =>
+              pokemonsActions.getAllPokemonsSuccess({
+                pokemonsResume: pokemonsResume,
+              })
+            ),
             catchError(() => EMPTY)
           )
         )

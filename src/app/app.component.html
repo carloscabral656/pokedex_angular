@@ -68,7 +68,11 @@
           </div>
 
           <!-- Visor -->
-          <div class="w-90/100 h-80/100 rounded-xl bg-black"></div>
+          <div
+            class="w-90/100 h-80/100 rounded-xl bg-black text-gray-50 flex flex-col items-center justify-center"
+          >
+            {{ selectedPokemon()?.name ?? "Nada Veio" }}
+          </div>
 
           <div class="w-full h-15/100 flex flex-row justify-between p-3 gap-8">
             <div
@@ -76,9 +80,9 @@
             ></div>
 
             <div class="w-14 flex flex-col gap-1">
-                <div class="w-full h-2 bg-black rounded-md"></div>
-                <div class="w-full h-2 bg-black rounded-md"></div>
-                <div class="w-full h-2 bg-black rounded-md"></div>
+              <div class="w-full h-2 bg-black rounded-md"></div>
+              <div class="w-full h-2 bg-black rounded-md"></div>
+              <div class="w-full h-2 bg-black rounded-md"></div>
             </div>
           </div>
         </div>
@@ -93,11 +97,13 @@
           class="w-full h-20/100 flex flex-row grow justify-around gap-7 p-10 self-end"
         >
           <button
+            (click)="previousPokemon()"
             class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
           >
             Anterior <
           </button>
           <button
+            (click)="nextPokemon()"
             class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
           >
             > Próximo

@@ -1,13 +1,4 @@
-import { isDevMode } from '@angular/core';
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  MetaReducer,
-  on,
-} from '@ngrx/store';
+import { createReducer, createSelector, MetaReducer, on } from '@ngrx/store';
 import { pokemonsActions } from './pokemons.actions';
 import { PokemonResume } from '../../interfaces/pokemon-resume.model';
 
@@ -24,8 +15,7 @@ export const pokemonsReducer = createReducer(
   on(pokemonsActions.getAllPokemonsSuccess, (state, action) => {
     return {
       ...state,
-      pokemonsResume: action.pokemonsResume.results
-    }
-  }),
+      pokemonsResume: action.pokemonsResume.results,
+    };
+  })
 );
-
