@@ -97,14 +97,24 @@
           class="w-full h-20/100 flex flex-row grow justify-around gap-7 p-10 self-end"
         >
           <button
+            [disabled]="previousPokemonButtonIsDisabled()"
+            [ngClass]="{
+              'text-black': previousPokemonButtonIsDisabled(),
+              'active:shadow-none active:translate-y-2 active:-translate-x-2 text-white': !previousPokemonButtonIsDisabled(),
+            }"
             (click)="previousPokemon()"
-            class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
+            class="e rounded-xl grow shadow-button-shadow border-2 border-black bg-button-color"
           >
             Anterior <
           </button>
           <button
-            (click)="nextPokemon()"
+            [disabled]="nextPokemonButtonIsDisabled()"
             class="text-white rounded-xl grow shadow-button-shadow active:shadow-none active:translate-y-2 active:-translate-x-2 border-2 border-black bg-button-color"
+            [ngClass]="{
+              'text-black': nextPokemonButtonIsDisabled(),
+              'active:shadow-none active:translate-y-2 active:-translate-x-2 text-white': !nextPokemonButtonIsDisabled(),
+            }"
+            (click)="nextPokemon()"
           >
             > Próximo
           </button>

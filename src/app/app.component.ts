@@ -39,23 +39,33 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(pokemonsActions.getAllPokemons());
 
-    this.pokemonsResume$
-      .subscribe((pokemonResume: PokemonResume[]) => {
-        this.pokemons.set(pokemonResume ?? []);
-      });
+    this.pokemonsResume$.subscribe((pokemonResume: PokemonResume[]) => {
+      this.pokemons.set(pokemonResume ?? []);
+    });
 
     this.selectedPokemon = computed(() => {
+      if (this.pokemons().length === 0) undefined;
       return this.pokemons()[this.pokemonIndex()];
     });
   }
 
   nextPokemon() {
-    this.pokemonIndex.update((oldIndex) => (oldIndex += 1));
+    this.pokemonIndex.update((oldIndex) =>
+      oldIndex === this.pokemons().length - 1 ? oldIndex : (oldIndex += 1)
+    );
+  }
+
+  nextPokemonButtonIsDisabled() {
+    return this.pokemonIndex() === this.pokemons().length - 1;
   }
 
   previousPokemon() {
     this.pokemonIndex.update((oldIndex) =>
       oldIndex === 0 ? 0 : (oldIndex -= 1)
     );
+  }
+
+  previousPokemonButtonIsDisabled() {
+    return this.pokemonIndex() === 0;
   }
 }
